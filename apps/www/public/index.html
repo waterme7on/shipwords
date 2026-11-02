@@ -8,19 +8,19 @@
       name="description"
       content="Open-source starter for a fleet of AI keyword sites: shared core, a new site in an afternoon, built-in AI image and video generation, and accounts and payments from day one."
     />
-    <link rel="canonical" href="https://shipwords.dev/" />
-    <link rel="alternate" hreflang="en" href="https://shipwords.dev/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://shipwords.dev/zh/" />
-    <link rel="alternate" hreflang="x-default" href="https://shipwords.dev/" />
+    <link rel="canonical" href="https://shipwords.yololab.cc/" />
+    <link rel="alternate" hreflang="en" href="https://shipwords.yololab.cc/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://shipwords.yololab.cc/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://shipwords.yololab.cc/" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="color-scheme" content="light" />
     <meta property="og:title" content="shipwords" />
-    <meta property="og:description" content="Ship a money-making AI site for every new keyword." />
-    <meta property="og:url" content="https://shipwords.dev/" />
+    <meta property="og:description" content="One keyword. One site. A money-making AI site for every new keyword." />
+    <meta property="og:url" content="https://shipwords.yololab.cc/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://shipwords.dev/img/og.jpg" />
+    <meta property="og:image" content="https://shipwords.yololab.cc/img/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="shipwords: One keyword. One site." />
@@ -29,176 +29,493 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
     />
-    <link rel="preload" as="image" href="/img/hero.webp" />
+    <script>
+      document.documentElement.classList.add("js");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("reduce");
+      setTimeout(function () {
+        if (window.__shipwordsReady) return;
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("is-in");
+        });
+      }, 2500);
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareSourceCode",
         "name": "shipwords",
         "description": "Ship a money-making AI site for every new keyword.",
-        "url": "https://shipwords.dev/",
+        "url": "https://shipwords.yololab.cc/",
         "codeRepository": "https://github.com/shipwords-dev/shipwords",
         "license": "https://opensource.org/licenses/MIT",
         "programmingLanguage": "TypeScript"
       }
     </script>
-    <link rel="stylesheet" href="/site.css" />
-    <script src="/analytics.js" async></script>
+    <link rel="stylesheet" href="/home.css" />
   </head>
   <body>
-    <div class="bar" id="bar" inert>
-      <div class="wrap">
-        <!-- biome-ignore lint/a11y/useAnchorContent: aria-label names the link; the wordmark is drawn in CSS -->
-        <a class="brand" href="#top" aria-label="shipwords"><span class="wordmark"></span></a>
-        <nav>
-          <a class="hide-sm" href="#fleet">Fleet</a>
-          <a class="hide-sm" href="#case">Showcase</a>
-          <a class="hide-sm" href="#inside">What's inside</a>
-          <a class="hide-sm" href="#start">Quick start</a>
-        </nav>
-        <div class="bar-end">
-          <a class="lang" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a>
-          <a class="btn sm" href="https://github.com/shipwords-dev/shipwords">Clone on GitHub</a>
-        </div>
-      </div>
-    </div>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <header class="hero" id="top">
-      <div class="hero-card">
-        <img
-          src="/img/hero.webp"
-          alt="A small sailboat with an orange sail on a lake below green hills and pink clouds, with an open laptop on the grass"
-          width="2048"
-          height="1152"
-          fetchpriority="high"
-        />
-        <video class="hero-video" muted loop playsinline aria-hidden="true" data-src="/img/hero.mp4"></video>
-        <div class="hero-nav">
-          <!-- biome-ignore lint/a11y/useAnchorContent: aria-label names the link; the wordmark is drawn in CSS -->
-          <a class="brand" href="/" aria-label="shipwords"><span class="wordmark"></span></a>
-          <nav>
-            <a class="hide-sm" href="#fleet">Fleet</a>
-            <a class="hide-sm" href="#case">Showcase</a>
-            <a class="hide-sm" href="#inside">What's inside</a>
-            <a class="hide-sm" href="#start">Quick start</a>
-            <a href="https://github.com/shipwords-dev/shipwords">GitHub</a>
-          </nav>
-          <a class="lang" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a>
-        </div>
-        <div class="hero-body">
-          <h1>One keyword. One site</h1>
-          <p class="sub">An open-source starter for a fleet of keyword sites: shared core, a new site in an afternoon, taking payments the day it launches</p>
-          <div class="prompt">
-            <div class="cmd" data-copy="Read https://shipwords.dev/llms.txt and build a site for &quot;{kw}&quot;.">
-              <span class="p">&gt; </span>Read shipwords.dev/llms.txt and build a site for <span class="q">"<input id="kw" value="tiny desk ai" size="12" aria-label="Your keyword" spellcheck="false" autocomplete="off" />"</span>
-            </div>
-            <button type="button" id="copy-hero" title="Copy prompt" aria-label="Copy prompt" data-fail="Copy blocked: select the prompt and copy by hand">
-              <svg class="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5" /><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15" /></svg>
-              <svg class="ic-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
-            </button>
-          </div>
-          <p class="prompt-hint">Type your own keyword, copy, and paste into Claude Code, Codex or Cursor</p>
-          <div class="hero-ctas">
-            <a class="btn light" href="https://github.com/shipwords-dev/shipwords">Clone on GitHub</a>
-            <a class="text-link" href="#case">or see a site built with it</a>
-          </div>
+    <header class="sitebar">
+      <div class="wrap">
+        <a class="brand" href="#top" aria-label="shipwords">
+          <img src="/wordmark-text.svg" alt="" width="96" height="20" />
+        </a>
+        <nav class="nav" aria-label="Sections">
+          <a href="#studio">Studio</a>
+          <a href="#fleet">Fleet</a>
+          <a href="#case">Showcase</a>
+          <a href="#inside">Inside</a>
+          <a href="#start">Quick start</a>
+        </nav>
+        <div class="bar-actions">
+          <a class="lang" href="/zh/" hreflang="zh-Hans" lang="zh-Hans"><i class="ico ico-globe" aria-hidden="true"></i>中文</a>
+          <a class="btn btn-sm" href="https://github.com/shipwords-dev/shipwords">
+            <i class="ico ico-github-logo" aria-hidden="true"></i><span>Clone on GitHub</span>
+          </a>
         </div>
       </div>
     </header>
 
-    <main>
-      <section class="rows" id="fleet">
+    <main id="main">
+      <section class="hero" id="top">
         <div class="wrap">
-          <div class="row">
-            <div>
+          <div class="hero-head reveal">
+            <h1>One keyword.<br /><em>One site.</em></h1>
+            <p class="hero-sub">
+              An open-source starter for a fleet of keyword sites: one shared core, a new site in an afternoon, and
+              payments working the day it launches.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="https://github.com/shipwords-dev/shipwords">
+                <i class="ico ico-github-logo" aria-hidden="true"></i>Clone on GitHub
+              </a>
+              <a class="text-link" href="#case">See a real site built with it <i class="ico ico-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="studio reveal" id="studio" data-studio>
+            <div class="studio-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="studio-title">shipwords / studio</span>
+              <span class="demo-pill"><i class="ico ico-sparkle" aria-hidden="true"></i>Interactive demo</span>
+            </div>
+
+            <div class="studio-grid">
+              <aside class="rail" aria-label="Example sites">
+                <p class="rail-label">Fleet</p>
+                <button class="site-pick" type="button" data-site="tiny" data-state="up" aria-pressed="true">
+                  <span class="dot" aria-hidden="true"></span>
+                  <span class="site-meta"><b>Tiny Desk AI</b><span>Took off · iterating</span></span>
+                </button>
+                <button class="site-pick" type="button" data-site="pet" data-state="new" aria-pressed="false">
+                  <span class="dot" aria-hidden="true"></span>
+                  <span class="site-meta"><b>Pet Portrait AI</b><span>Launched today</span></span>
+                </button>
+                <button class="site-pick" type="button" data-site="ghibli" data-state="quiet" aria-pressed="false">
+                  <span class="dot" aria-hidden="true"></span>
+                  <span class="site-meta"><b>Ghibli Photo</b><span>Quiet · left alone</span></span>
+                </button>
+                <button class="site-pick" type="button" data-site="baby" data-state="quiet" aria-pressed="false">
+                  <span class="dot" aria-hidden="true"></span>
+                  <span class="site-meta"><b>AI Baby</b><span>Quiet · left alone</span></span>
+                </button>
+                <div class="rail-core"><b>Shared core</b><span>v0.1.0 · MIT</span></div>
+              </aside>
+
+              <div class="studio-main">
+                <form class="build-row" data-build-form>
+                  <label class="sr-only" for="keyword">Keyword</label>
+                  <div class="kw-wrap">
+                    <span class="kw-prefix">new site for</span>
+                    <input
+                      id="keyword"
+                      name="keyword"
+                      value="tiny desk ai"
+                      size="16"
+                      spellcheck="false"
+                      autocomplete="off"
+                      aria-describedby="build-status"
+                    />
+                  </div>
+                  <button class="btn btn-sm" type="submit" data-build>
+                    <i class="ico ico-magic-wand" aria-hidden="true"></i><span>Build site</span>
+                  </button>
+                </form>
+
+                <div class="presets" aria-label="Example keywords">
+                  <button class="preset" type="button" data-kw="tiny desk ai" aria-pressed="true">tiny desk ai</button>
+                  <button class="preset" type="button" data-kw="pet portrait ai" aria-pressed="false">pet portrait ai</button>
+                  <button class="preset" type="button" data-kw="ghibli photo" aria-pressed="false">ghibli photo</button>
+                  <button class="preset" type="button" data-kw="ai baby generator" aria-pressed="false">ai baby generator</button>
+                </div>
+
+                <div class="build-progress" aria-hidden="true"><span></span></div>
+
+                <div class="preview">
+                  <div class="preview-chrome">
+                    <span class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="preview-url" data-domain>tinydeskai.io</span>
+                    <span class="preview-lock"><i class="ico ico-seal-check" aria-hidden="true"></i>demo</span>
+                  </div>
+                  <div class="preview-page" data-theme="ember" data-preview>
+                    <div class="preview-nav">
+                      <span class="preview-brand"><i data-initial aria-hidden="true">T</i><b data-name>Tiny Desk AI</b></span>
+                      <span class="preview-links" aria-hidden="true">Examples&nbsp;&nbsp; Pricing&nbsp;&nbsp; FAQ</span>
+                      <span class="preview-credit"><span data-credits>120</span> credits</span>
+                    </div>
+                    <div class="preview-hero">
+                      <div>
+                        <p class="preview-headline" data-headline>Turn one photo into a Tiny Desk performance</p>
+                        <p class="preview-sub" data-sub>Upload a photo. The whole desk sings back, mouths on the beat.</p>
+                        <span class="preview-cta" data-cta>Try it free <i class="ico ico-arrow-right" aria-hidden="true"></i></span>
+                      </div>
+                      <div class="preview-art" data-note="example output">
+                        <img
+                          data-image
+                          src="/img/result/tiny-desk-ai.webp"
+                          alt="Example result for Tiny Desk AI"
+                          width="800"
+                          height="450"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="preview-strip">
+                      <span><i class="ico ico-lightning" aria-hidden="true"></i>3 free tries</span>
+                      <span><i class="ico ico-credit-card" aria-hidden="true"></i><span data-price>$9.90</span> · 120 credits</span>
+                      <span><i class="ico ico-browser" aria-hidden="true"></i><span data-domain>tinydeskai.io</span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="studio-status" id="build-status" role="status" data-status>
+                  Ready. Nothing is charged or deployed in this demo.
+                </p>
+              </div>
+
+              <aside class="studio-side" aria-label="Launch checklist">
+                <div>
+                  <p class="side-label">Ready at launch</p>
+                  <ul class="checklist" data-checklist>
+                    <li data-check="domain"><i class="ico ico-check" aria-hidden="true"></i>Domain + database</li>
+                    <li data-check="pages"><i class="ico ico-check" aria-hidden="true"></i>Pages + design</li>
+                    <li data-check="models"><i class="ico ico-check" aria-hidden="true"></i>Image / video models</li>
+                    <li data-check="account"><i class="ico ico-check" aria-hidden="true"></i>Sign-in + credits</li>
+                    <li data-check="pay"><i class="ico ico-check" aria-hidden="true"></i>Stripe / PayPal</li>
+                  </ul>
+                </div>
+                <p class="side-note"><b>Test mode is on.</b> Sign-in, checkout and generation work without a model key.</p>
+              </aside>
+            </div>
+
+            <div class="studio-foot">
+              <span>Type any keyword. The name, domain and page update.</span>
+              <span>Nothing leaves this page.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="fleet">
+        <div class="wrap">
+          <div class="section-head-row reveal">
+            <div class="section-head">
               <h2>Built for a fleet of keyword sites</h2>
-              <p>The core is shared; each site's business is its own. Put up a site for every new keyword, leave the ones that don't take off, keep improving the ones that do. Fix a bug in the shared parts once, and every site can take the update.</p>
+              <p class="section-lede">
+                The core is shared; each site's business is its own. Put up a site for every new keyword, leave the ones
+                that don't take off, keep improving the ones that do. Fix a bug in the shared parts once, and every site
+                can take the update.
+              </p>
             </div>
-            <div class="stage sky-b fleet" aria-hidden="true">
-              <div class="fleet-sites">
-                <div class="fsite up"><b>tinydeskai.io</b><span>Took off · iterating</span></div>
-                <div class="fsite new"><b>pet portrait ai</b><span>Launched today</span></div>
-                <div class="fsite idle"><b>ghibli photo</b><span>Quiet · left alone</span></div>
-                <div class="fsite idle"><b>ai baby generator</b><span>Quiet · left alone</span></div>
-              </div>
-              <div class="fleet-core"><b>Shared core</b><span>Accounts · Payments · Credits · AI generation · SEO</span><small>Fix once, update every site</small></div>
-            </div>
+            <button class="btn btn-light btn-sm" type="button" data-core-update>
+              <i class="ico ico-wrench" aria-hidden="true"></i><span>Ship a core update</span>
+            </button>
           </div>
-        </div>
-      </section>
 
-      <section class="case" id="case">
-        <div class="wrap">
-          <div class="compare">
-            <figure class="clip">
-              <div class="clip-frame">
-                <video muted loop playsinline preload="none" poster="https://tinydeskai.io/media/viral-coaches.jpg" data-src="https://tinydeskai.io/media/viral-coaches.mp4" aria-label="Viral Tiny Desk video with college football coaches singing Outstanding"></video>
-                <button type="button" class="sound" aria-pressed="false" aria-label="Play with sound">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" /><path class="off" d="m16 9 5 6m0-6-5 6" /><path class="on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" /></svg>
-                </button>
-              </div>
-              <figcaption><b>The viral original</b><span>288K likes on TikTok · not made with shipwords</span></figcaption>
-            </figure>
-            <figure class="clip ours">
-              <div class="clip-frame">
-                <video muted loop playsinline preload="none" poster="https://tinydeskai.io/media/sample-dogs.jpg" data-src="https://tinydeskai.io/media/sample-dogs.mp4" aria-label="Tiny Desk video made on Tiny Desk AI with all five performers swapped for dogs"></video>
-                <button type="button" class="sound" aria-pressed="false" aria-label="Play with sound">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" /><path class="off" d="m16 9 5 6m0-6-5 6" /><path class="on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" /></svg>
-                </button>
-              </div>
-              <figcaption><b>Made on Tiny Desk AI</b><span>All five swapped for dogs in one run · the dogs are AI-generated</span></figcaption>
-            </figure>
-          </div>
-          <div class="case-body">
-            <h2>Proven AI, built in</h2>
-            <p>Tiny Desk AI is built on shipwords, and its full source is in the repo. Left, the viral TikTok. Right, the same clip made on the site with all five people swapped for dogs.</p>
-            <ul class="how">
-              <li><b>Video templates</b>Turn a viral clip into a template: visitors upload photos and get the same video back. That's how Tiny Desk AI works, ready to copy.</li>
-              <li><b>Face swap that holds up</b>The whole clip in one pass: each photo replaces a performer, face, hair and clothes, with mouths still on the beat. Missed swaps can be re-rendered shot by shot before delivery, as tinydeskai.io does.</li>
-              <li><b>The popular models, built in</b>GPT Image, Nano Banana, Seedream, FLUX, Seedance, Veo, Kling, Wan and more. Add one API key and pay per generation.</li>
-              <li><b>A real site to fork</b>Pages, pricing and the video pipeline of tinydeskai.io, ready to fork for your own keyword.</li>
+          <div class="fleet-board reveal">
+            <div class="fleet-head" aria-hidden="true">
+              <span>Site</span><span>Keyword</span><span>Status</span><span>Core</span>
+            </div>
+            <ul class="fleet-list">
+              <li class="fleet-row">
+                <div class="fleet-site"><span class="fleet-mark" aria-hidden="true">T</span><span><b>Tiny Desk AI</b><span>tinydeskai.io</span></span></div>
+                <span class="fleet-keyword">tiny desk ai</span>
+                <span class="status up"><i aria-hidden="true"></i>Took off · iterating</span>
+                <span class="version" data-version>v0.1.0</span>
+              </li>
+              <li class="fleet-row">
+                <div class="fleet-site"><span class="fleet-mark" aria-hidden="true">P</span><span><b>Pet Portrait AI</b><span>petportrait.ai</span></span></div>
+                <span class="fleet-keyword">pet portrait ai</span>
+                <span class="status new"><i aria-hidden="true"></i>Launched today</span>
+                <span class="version" data-version>v0.1.0</span>
+              </li>
+              <li class="fleet-row">
+                <div class="fleet-site"><span class="fleet-mark" aria-hidden="true">G</span><span><b>Ghibli Photo</b><span>ghibliphoto.ai</span></span></div>
+                <span class="fleet-keyword">ghibli photo</span>
+                <span class="status quiet"><i aria-hidden="true"></i>Quiet · left alone</span>
+                <span class="version" data-version>v0.1.0</span>
+              </li>
+              <li class="fleet-row">
+                <div class="fleet-site"><span class="fleet-mark" aria-hidden="true">A</span><span><b>AI Baby</b><span>aibaby.ai</span></span></div>
+                <span class="fleet-keyword">ai baby generator</span>
+                <span class="status quiet"><i aria-hidden="true"></i>Quiet · left alone</span>
+                <span class="version" data-version>v0.1.0</span>
+              </li>
             </ul>
-            <div class="case-ctas">
-              <a class="btn" href="https://tinydeskai.io/?utm_source=shipwords&amp;utm_medium=www">Visit tinydeskai.io</a>
-              <a class="btn light" href="https://github.com/shipwords-dev/shipwords/tree/main/sites/tinydeskai-example">Read its code</a>
+            <div class="fleet-core">
+              <b>Shared core</b><span>Accounts · Payments · Credits · AI generation · SEO</span>
+              <span class="version" data-core-version>v0.1.0</span>
+            </div>
+          </div>
+          <p class="fleet-note" role="status" data-core-status>An example fleet. One shared commit reaches every site.</p>
+        </div>
+      </section>
+
+      <section class="section" id="case">
+        <div class="wrap">
+          <div class="case-grid">
+            <div class="media reveal">
+              <div class="media-stage">
+                <span class="media-badge" data-media-badge>288K likes on TikTok · not made with shipwords</span>
+                <video
+                  data-clip="original"
+                  poster="https://tinydeskai.io/media/viral-coaches.jpg"
+                  data-src="https://tinydeskai.io/media/viral-coaches.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-label="The viral Tiny Desk video with college football coaches singing Outstanding"
+                ></video>
+                <video
+                  data-clip="ours"
+                  poster="https://tinydeskai.io/media/sample-dogs.jpg"
+                  data-src="https://tinydeskai.io/media/sample-dogs.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  hidden
+                  aria-label="A Tiny Desk video made on Tiny Desk AI, with all five performers swapped for dogs"
+                ></video>
+              </div>
+              <div class="media-bar">
+                <div class="segmented" role="group" aria-label="Choose a video">
+                  <button type="button" data-switch-clip="original" aria-pressed="true">The viral original</button>
+                  <button type="button" data-switch-clip="ours" aria-pressed="false">Made on Tiny Desk AI</button>
+                </div>
+                <div class="media-tools">
+                  <button class="icon-btn" type="button" data-media-sound aria-pressed="false" aria-label="Play with sound">
+                    <i class="ico ico-speaker-slash" aria-hidden="true"></i>
+                  </button>
+                  <button class="icon-btn" type="button" data-media-play aria-label="Play video">
+                    <i class="ico ico-play" data-play-icon aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <p class="media-caption">
+                <span data-caption-left><b>The viral original</b> · a real TikTok, not made with shipwords</span>
+                <span data-caption-right>The dogs are AI-generated</span>
+              </p>
+            </div>
+
+            <div class="case-copy reveal">
+              <div class="section-head">
+                <h2>Proven AI, built in</h2>
+                <p class="section-lede">
+                  Tiny Desk AI is built on shipwords, and its full source is in the repo. Switch between the viral
+                  TikTok and the same clip made on the site, with all five people swapped for dogs.
+                </p>
+              </div>
+              <ul class="case-list">
+                <li>
+                  <b>Video templates</b>
+                  <span>Turn a viral clip into a template: visitors upload photos and get the same video back. That's how Tiny Desk AI works, ready to copy.</span>
+                </li>
+                <li>
+                  <b>Face swap that holds up</b>
+                  <span>The whole clip in one pass: each photo replaces a performer, face, hair and clothes, with mouths still on the beat. Missed swaps can be re-rendered shot by shot before delivery, as tinydeskai.io does.</span>
+                </li>
+                <li>
+                  <b>The popular models, built in</b>
+                  <span>GPT Image, Nano Banana, Seedream, FLUX, Seedance, Veo, Kling, Wan and more. Add one API key and pay per generation.</span>
+                </li>
+                <li>
+                  <b>A real site to fork</b>
+                  <span>Pages, pricing and the video pipeline of tinydeskai.io, ready to fork for your own keyword.</span>
+                </li>
+              </ul>
+              <div class="case-actions">
+                <a class="btn" href="https://tinydeskai.io/?utm_source=shipwords&amp;utm_medium=www">Visit tinydeskai.io</a>
+                <a class="text-link" href="https://github.com/shipwords-dev/shipwords/tree/main/sites/tinydeskai-example">Read its code <i class="ico ico-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="rows" id="inside">
+      <section class="section" id="inside">
         <div class="wrap">
-          <div class="row">
-            <div>
-              <h2>Takes money out of the box</h2>
-              <p>Accounts, payments, orders and notifications come with every site. Make the page about your keyword and open for business.</p>
-              <ul class="kit"><li>Google and email sign-in</li><li>Account page</li><li>Stripe and PayPal</li><li>Credit packs and plans</li><li>Orders and refunds</li><li>Email notifications</li><li>Free trials with abuse limits</li><li>Privacy, terms, refund and DMCA pages</li><li>SEO and llms.txt</li><li>Analytics</li></ul>
-              <p class="tested"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg><span>The money code is shared and tested: double charges, repeated or out-of-order payment events and failed jobs are all covered.</span></p>
+          <div class="section-head reveal">
+            <h2>Takes money out of the box</h2>
+            <p class="section-lede">
+              Accounts, payments, orders and notifications come with every site. Make the page about your keyword and
+              open for business.
+            </p>
+          </div>
+
+          <div class="inside-grid">
+            <div class="reveal">
+              <ul class="kit-list">
+                <li><i class="ico ico-check" aria-hidden="true"></i>Google and email sign-in</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Account page</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Stripe and PayPal</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Credit packs and plans</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Orders and refunds</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Email notifications</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Free trials with abuse limits</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Privacy, terms, refund and DMCA</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>SEO and llms.txt</li>
+                <li><i class="ico ico-check" aria-hidden="true"></i>Analytics</li>
+              </ul>
+              <p class="tested">
+                <i class="ico ico-seal-check" aria-hidden="true"></i>
+                <span>The money code is shared and tested: double charges, repeated or out-of-order payment events and failed jobs are all covered.</span>
+              </p>
             </div>
-            <div class="stage sky-a" aria-hidden="true">
-              <div class="toast"><i>S</i><span><b>Payment received</b>+120 credits · Stripe</span></div>
-              <div class="window">
-                <div class="chrome">
-                  <div class="dots"><i></i><i></i><i></i></div>
-                  <div class="url" id="site-url">tiny-desk-ai.com</div>
-                </div>
-                <div class="site">
-                  <div class="page">
-                    <div class="topline"><span class="mark"></span><span id="site-kw">Tiny Desk AI</span><span class="guest"><span>Guest · </span><i id="tries">3</i> left</span><span class="credits"><i id="cr">120</i> credits</span><span class="avatar"></span></div>
-                    <div class="result"><img id="site-img" src="/img/result/tiny-desk-ai.webp" alt="" loading="lazy" /><span class="prog"></span><span class="meta">done · 2 credits</span></div>
-                    <div class="drop">Drop a photo to start<b>Generate</b></div>
-                    <div class="sheet login"><b>Free tries used up</b><span class="gbtn"><svg viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285f4" d="M17.6 9.2c0-.6-.1-1.2-.2-1.8H9v3.4h4.8a4.1 4.1 0 0 1-1.8 2.7v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.5z"/><path fill="#34a853" d="M9 18c2.4 0 4.5-.8 5.9-2.2L12 13.6c-.8.5-1.8.9-3 .9-2.3 0-4.3-1.6-5-3.7H1v2.3A9 9 0 0 0 9 18z"/><path fill="#fbbc05" d="M4 10.8a5.4 5.4 0 0 1 0-3.5V5H1a9 9 0 0 0 0 8.1l3-2.3z"/><path fill="#ea4335" d="M9 3.6c1.3 0 2.5.5 3.4 1.3L15 2.4A9 9 0 0 0 1 5l3 2.3c.7-2.1 2.7-3.7 5-3.7z"/></svg>Continue with Google</span></div>
-                    <div class="sheet pay"><b>Pick a credit pack</b><span class="plan">40 credits<em>$4.9</em></span><span class="plan">120 credits<em>$9.9</em></span><span class="paybtn">Pay with Stripe</span></div>
+
+            <div class="demo-panel reveal" data-tabs>
+              <div class="demo-tabs" role="tablist" aria-label="What's inside">
+                <span class="demo-ink" aria-hidden="true" data-tab-ink></span>
+                <button class="demo-tab" role="tab" id="tab-money" aria-controls="panel-money" aria-selected="true" tabindex="0">Money</button>
+                <button class="demo-tab" role="tab" id="tab-jobs" aria-controls="panel-jobs" aria-selected="false" tabindex="-1">Jobs</button>
+                <button class="demo-tab" role="tab" id="tab-seo" aria-controls="panel-seo" aria-selected="false" tabindex="-1">SEO</button>
+                <button class="demo-tab" role="tab" id="tab-accounts" aria-controls="panel-accounts" aria-selected="false" tabindex="-1">Accounts</button>
+              </div>
+
+              <div class="demo-body">
+                <div class="demo-pane" id="panel-money" role="tabpanel" aria-labelledby="tab-money" data-pane="money">
+                  <div class="demo-head">
+                    <div>
+                      <h3>Checkout</h3>
+                      <p>Tiny Desk AI · tinydeskai.io</p>
+                    </div>
+                    <span class="demo-tag">test mode</span>
                   </div>
-                  <div class="side">
-                    <div class="label">Ready at launch</div>
-                    <div class="check">3 free guest tries</div>
-                    <div class="check">AI generation</div>
-                    <div class="check">Google sign-in</div>
-                    <div class="check">Credit packs &amp; plans</div>
-                    <div class="check">Stripe · PayPal</div>
+                  <div class="checkout" data-checkout>
+                    <div class="order-line"><span>120 credits</span><b>$9.90</b></div>
+                    <fieldset class="pay-methods">
+                      <legend class="sr-only">Payment method</legend>
+                      <label class="pay-method">
+                        <input type="radio" name="pay-method" value="stripe" checked />
+                        <span class="radio" aria-hidden="true"></span>
+                        <b>Stripe</b><small>Pay by card or Apple Pay</small><i class="ico ico-check" aria-hidden="true"></i>
+                      </label>
+                      <label class="pay-method">
+                        <input type="radio" name="pay-method" value="paypal" />
+                        <span class="radio" aria-hidden="true"></span>
+                        <b>PayPal</b><small>Use your PayPal balance or card</small><i class="ico ico-check" aria-hidden="true"></i>
+                      </label>
+                    </fieldset>
+                    <p class="tiny">This is only a demo. There is no card field, and nothing is charged.</p>
+                    <button class="btn btn-block" type="button" data-pay>Pay $9.90 with Stripe</button>
+                  </div>
+                  <div class="success" data-pay-success hidden>
+                    <span class="success-mark"><i class="ico ico-check" aria-hidden="true"></i></span>
+                    <h4>Payment received</h4>
+                    <p>120 credits are on the account. The first generation is ready.</p>
+                    <span class="amount">+120</span>
+                    <span class="receipt">order #SW-1042 · test mode</span>
+                    <button class="text-btn" type="button" data-pay-reset>Run it again</button>
+                  </div>
+                </div>
+
+                <div class="demo-pane" id="panel-jobs" role="tabpanel" aria-labelledby="tab-jobs" data-pane="jobs" hidden>
+                  <div class="demo-head">
+                    <div>
+                      <h3>Job queue</h3>
+                      <p>Three jobs, each charged once.</p>
+                    </div>
+                    <span class="demo-tag">mock upstream</span>
+                  </div>
+                  <ul class="job-list" data-job-list>
+                    <li class="job" data-job="done" data-state="done">
+                      <div><b>Tiny Desk video</b><small>#812 · 2 credits</small></div>
+                      <span class="chip done">Done</span>
+                      <div class="job-progress" aria-hidden="true"><span style="width: 100%"></span></div>
+                    </li>
+                    <li class="job" data-job="repair" data-state="running">
+                      <div><b>Face swap repair</b><small data-repair-meta>#813 · shot 3 of 5</small></div>
+                      <span class="chip run" data-repair-chip>Running</span>
+                      <div class="job-progress" aria-hidden="true"><span data-repair-bar style="width: 56%"></span></div>
+                    </li>
+                    <li class="job" data-job="queued" data-state="queued">
+                      <div><b>Pet portrait</b><small>#814 · queued</small></div>
+                      <span class="chip wait">Queued</span>
+                      <div class="job-progress" aria-hidden="true"><span style="width: 0"></span></div>
+                    </li>
+                  </ul>
+                  <div class="demo-actions">
+                    <button class="btn btn-sm" type="button" data-repair>Repair missed shot</button>
+                    <p class="tiny">A missed swap is repaired before delivery, not refunded.</p>
+                  </div>
+                  <p class="studio-status" role="status" data-job-status></p>
+                </div>
+
+                <div class="demo-pane" id="panel-seo" role="tabpanel" aria-labelledby="tab-seo" data-pane="seo" hidden>
+                  <div class="demo-head">
+                    <div>
+                      <h3>Launch checks</h3>
+                      <p>Title, canonical, sitemap, llms.txt.</p>
+                    </div>
+                    <button class="btn btn-light btn-sm" type="button" data-seo-run>Run checks</button>
+                  </div>
+                  <ul class="seo-list" data-seo-list>
+                    <li data-seo-item><i class="ico ico-check" aria-hidden="true"></i>Title and meta description<small>waiting</small></li>
+                    <li data-seo-item><i class="ico ico-check" aria-hidden="true"></i>Canonical and hreflang<small>waiting</small></li>
+                    <li data-seo-item><i class="ico ico-check" aria-hidden="true"></i>sitemap.xml<small>waiting</small></li>
+                    <li data-seo-item><i class="ico ico-check" aria-hidden="true"></i>robots.txt<small>waiting</small></li>
+                    <li data-seo-item><i class="ico ico-check" aria-hidden="true"></i>llms.txt<small>waiting</small></li>
+                    <li data-seo-item><i class="ico ico-check" aria-hidden="true"></i>JSON-LD on the home page<small>waiting</small></li>
+                  </ul>
+                  <p class="tiny">Builds on tools/check-crawl.mjs. Run it against the live domain before asking for indexing.</p>
+                  <p class="studio-status" role="status" data-seo-status></p>
+                </div>
+
+                <div class="demo-pane" id="panel-accounts" role="tabpanel" aria-labelledby="tab-accounts" data-pane="accounts" hidden>
+                  <div class="demo-head">
+                    <div>
+                      <h3>One account</h3>
+                      <p>Sign in once, use every site.</p>
+                    </div>
+                    <span class="demo-tag">test mode</span>
+                  </div>
+                  <div class="auth" data-auth>
+                    <p>Google or an email code. No password to store.</p>
+                    <button class="btn btn-light btn-block" type="button" data-google>
+                      <i class="ico ico-google-logo" aria-hidden="true"></i>Continue with Google
+                    </button>
+                    <div class="or">or</div>
+                    <div class="field">
+                      <label for="demo-email">Email</label>
+                      <input id="demo-email" type="email" value="you@example.com" autocomplete="email" />
+                    </div>
+                    <button class="btn btn-block" type="button" data-email>Email me a code</button>
+                    <p class="tiny">The demo signs in locally. No request leaves this page.</p>
+                  </div>
+                  <div class="account" data-account hidden>
+                    <div class="account-head">
+                      <span class="avatar" aria-hidden="true">Y</span>
+                      <div><b>you@example.com</b><span>Signed in · Google</span></div>
+                    </div>
+                    <div class="account-stats">
+                      <div><b>120</b><span>credits</span></div>
+                      <div><b>2</b><span>orders</span></div>
+                    </div>
+                    <button class="text-btn" type="button" data-signout>Sign out</button>
                   </div>
                 </div>
               </div>
@@ -207,116 +524,177 @@
         </div>
       </section>
 
-      <section class="run" id="start">
+      <section class="section" id="start">
         <div class="wrap">
-          <div class="center">
+          <div class="section-head reveal">
             <h2>Four steps, one afternoon</h2>
+            <p class="section-lede">
+              A keyword, a domain and a coding agent. The shared parts are already written; you make the page about the
+              word.
+            </p>
           </div>
-          <ol class="steps">
-            <li>
-              <div class="shot dom" aria-hidden="true"><span class="url"><i></i>yourkeyword.com</span><span class="tagp">$10.44/yr</span></div>
-              <b>Buy the domain</b>
-              <p>Exact-match domain on Cloudflare Registrar, at cost.</p>
-            </li>
-            <li>
-              <div class="shot term" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span><em>$</em> pnpm new-site</span><span class="ok">✓ site ready</span></div>
-              <b>Scaffold</b>
-              <p><code>pnpm new-site</code> copies the template and wires names, domain and database.</p>
-            </li>
-            <li>
-              <div class="shot cfg" aria-hidden="true"><span class="f">site.config.ts</span><span><em>price</em>: { amount: <u>499</u> },</span><span><em>credits</em>: <u>200</u>,</span></div>
-              <b>Make it yours</b>
-              <p>Write the page, pick the models, set prices in <code>site.config.ts</code>.</p>
-            </li>
-            <li>
-              <div class="shot ship" aria-hidden="true"><span>Stripe</span><span>Deploy</span><span>Search Console</span><span>IndexNow</span></div>
-              <b>Launch</b>
-              <p>Follow the <a href="https://github.com/shipwords-dev/shipwords/blob/main/docs/site-launch.md">launch checklist</a>: payments, deploy, Search Console, Bing and IndexNow.</p>
-            </li>
-          </ol>
+
+          <div class="start-grid">
+            <div class="reveal">
+              <ol class="steps">
+                <li>
+                  <button class="step" type="button" data-step="1" aria-current="step">
+                    <span class="step-num">1</span>
+                    <span><b>Buy the domain</b><span>Exact-match domain on Cloudflare Registrar, at cost.</span></span>
+                  </button>
+                </li>
+                <li>
+                  <button class="step" type="button" data-step="2">
+                    <span class="step-num">2</span>
+                    <span><b>Scaffold</b><span><code>pnpm new-site</code> copies the template and wires names, domain and database.</span></span>
+                  </button>
+                </li>
+                <li>
+                  <button class="step" type="button" data-step="3">
+                    <span class="step-num">3</span>
+                    <span><b>Make it yours</b><span>Write the page, pick the models, set prices in <code>site.config.ts</code>.</span></span>
+                  </button>
+                </li>
+                <li>
+                  <button class="step" type="button" data-step="4">
+                    <span class="step-num">4</span>
+                    <span><b>Launch</b><span>Push to main. The build runs checks, deploys, then Search Console and IndexNow.</span></span>
+                  </button>
+                </li>
+              </ol>
+
+              <div class="agent-prompt">
+                <label for="agent-kw">Or hand the whole job to your coding agent</label>
+                <div class="prompt-row">
+                  <div class="prompt-box">
+                    <span class="prompt-prefix">Read llms.txt · build a site for</span>
+                    <input id="agent-kw" value="ghibli photo" size="12" spellcheck="false" autocomplete="off" aria-label="Keyword for your agent" />
+                  </div>
+                  <button class="btn" type="button" data-copy-prompt>
+                    <i class="ico ico-copy" aria-hidden="true"></i><span>Copy prompt</span>
+                  </button>
+                </div>
+                <p class="prompt-hint" role="status" data-prompt-hint>Copies a prompt for Claude Code, Codex or Cursor.</p>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <div class="term">
+                <div class="term-bar">
+                  <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="term-title">shipwords / your-keyword</span>
+                  <button class="copy-term" type="button" data-copy-term>
+                    <i class="ico ico-copy" aria-hidden="true"></i><span>Copy</span>
+                  </button>
+                </div>
+                <div class="term-body" data-term aria-live="polite"><span class="tok-dim"># Cloudflare Registrar, at cost</span>
+ghibli-photo.com          <span class="tok-ok">$10.44/yr</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="meadow">
-        <img src="/img/meadow.webp" alt="" width="1672" height="941" loading="lazy" />
-        <div class="head">
-          <h2>Somebody is searching for it right now</h2>
-          <p>Be the site they land on</p>
-          <a class="btn light" href="https://github.com/shipwords-dev/shipwords">Clone on GitHub</a>
-        </div>
-        <div class="marquee" aria-hidden="true">
-          <div class="lane" id="lane-a"></div>
-          <div class="lane rev" id="lane-b"></div>
-        </div>
-      </section>
-
-      <section class="faq">
+      <section class="closing">
         <div class="wrap">
-          <div class="center">
-            <h2>Ask before you clone</h2>
+          <div class="reveal">
+            <h2>Somebody is searching for it <em>right now.</em></h2>
+            <p>Be the site they land on.</p>
+            <div class="closing-actions">
+              <a class="btn" href="https://github.com/shipwords-dev/shipwords">
+                <i class="ico ico-github-logo" aria-hidden="true"></i>Clone on GitHub
+              </a>
+              <a class="text-link" href="https://github.com/shipwords-dev/shipwords/blob/main/docs/site-launch.md">Read the launch guide <i class="ico ico-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
           </div>
-          <div class="list">
-            <details open>
-              <summary>What is shipwords?</summary>
-              <p>
-                A free, MIT-licensed codebase for running many small AI image and video sites, one per keyword. Generation
-                jobs, sign-in, credits, payments and free trials are written once and shared; each site has its own pages,
-                look and domain.
-              </p>
+        </div>
+        <div class="keyword-wall" aria-label="Try a keyword in the studio">
+          <button type="button" data-jump-kw="ai baby generator">ai baby generator</button>
+          <button type="button" data-jump-kw="ghibli photo">ghibli photo</button>
+          <button type="button" data-jump-kw="pet portrait ai">pet portrait ai</button>
+          <button type="button" data-jump-kw="tiny desk ai">tiny desk ai</button>
+          <button type="button" data-jump-kw="ai hug video">ai hug video</button>
+          <button type="button" data-jump-kw="old photo restore">old photo restore</button>
+          <button type="button" data-jump-kw="ai headshot">ai headshot</button>
+          <button type="button" data-jump-kw="sticker maker">sticker maker</button>
+          <button type="button" data-jump-kw="ai yearbook">ai yearbook</button>
+          <button type="button" data-jump-kw="action figure ai">action figure ai</button>
+          <button type="button" data-jump-kw="ai dance video">ai dance video</button>
+          <button type="button" data-jump-kw="remove watermark">remove watermark</button>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <div class="wrap">
+          <h2 class="reveal">Ask before you clone</h2>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary><span class="faq-q">What is shipwords?<i class="ico ico-caret-down" aria-hidden="true"></i></span></summary>
+              <div class="faq-a">
+                <span class="faq-avatar" aria-hidden="true">s</span>
+                <div class="faq-bubble">
+                  <p>A free, MIT-licensed codebase for running many small AI image and video sites, one per keyword. Generation jobs, sign-in, credits, payments and free trials are written once and shared; each site has its own pages, look and domain.</p>
+                </div>
+              </div>
             </details>
-            <details>
-              <summary>How is it different from a paid SaaS boilerplate?</summary>
-              <p>
-                Most boilerplates give you one SaaS app. shipwords is built for running many AI sites at once: the shared
-                core is fixed once for all of them, image and video generation is built in, and a real site's full source
-                shows how to ship one.
-              </p>
+            <details class="faq-item">
+              <summary><span class="faq-q">How is it different from a paid SaaS boilerplate?<i class="ico ico-caret-down" aria-hidden="true"></i></span></summary>
+              <div class="faq-a">
+                <span class="faq-avatar" aria-hidden="true">s</span>
+                <div class="faq-bubble">
+                  <p>Most boilerplates give you one SaaS app. shipwords is built for running many AI sites at once: the shared core is fixed once for all of them, image and video generation is built in, and a real site's full source shows how to ship one.</p>
+                </div>
+              </div>
             </details>
-            <details>
-              <summary>What does it cost?</summary>
-              <p>
-                The code is free and MIT-licensed, commercial use included. You pay for the domain (about $10 a year at
-                cost), your Cloudflare usage, Stripe or PayPal fees on each sale, and model fees on Yir per generation, which you cap per job in
-                <code>site.models.ts</code>. Video sites that stitch clips together need Cloudflare's Workers Paid plan.
-              </p>
+            <details class="faq-item">
+              <summary><span class="faq-q">What does it cost?<i class="ico ico-caret-down" aria-hidden="true"></i></span></summary>
+              <div class="faq-a">
+                <span class="faq-avatar" aria-hidden="true">s</span>
+                <div class="faq-bubble">
+                  <p>The code is free and MIT-licensed, commercial use included. You pay for the domain (about $10 a year at cost), Cloudflare usage, Stripe or PayPal fees on each sale, and model fees on Yir per generation, capped per job in <code>src/models.server.ts</code>. Video sites that stitch clips together need Cloudflare's Workers Paid plan.</p>
+                </div>
+              </div>
             </details>
-            <details>
-              <summary>Do I need to know how to code?</summary>
-              <p>
-                You work in a code repo, but a coding agent does most of the writing: give it the keyword and it builds
-                the pages, while sign-in and payments are already done. You should be comfortable running terminal
-                commands and setting up Stripe and Cloudflare accounts.
-              </p>
+            <details class="faq-item">
+              <summary><span class="faq-q">Do I need to know how to code?<i class="ico ico-caret-down" aria-hidden="true"></i></span></summary>
+              <div class="faq-a">
+                <span class="faq-avatar" aria-hidden="true">s</span>
+                <div class="faq-bubble">
+                  <p>You work in a code repo, but a coding agent does most of the writing: give it the keyword and it builds the pages, while sign-in and payments are already done. You should be comfortable running terminal commands and setting up Stripe and Cloudflare accounts.</p>
+                </div>
+              </div>
             </details>
-            <details>
-              <summary>Where does it run?</summary>
-              <p>
-                On Cloudflare. Each site is deployed on its own, with its own database, file storage and payment account,
-                so you can launch or retire one without touching the rest.
-              </p>
+            <details class="faq-item">
+              <summary><span class="faq-q">Where does it run?<i class="ico ico-caret-down" aria-hidden="true"></i></span></summary>
+              <div class="faq-a">
+                <span class="faq-avatar" aria-hidden="true">s</span>
+                <div class="faq-bubble">
+                  <p>On Cloudflare. Each site is deployed on its own, with its own database, file storage and payment account, so you can launch or retire one without touching the rest.</p>
+                </div>
+              </div>
             </details>
-            <details>
-              <summary>Do I need a model API key to try it?</summary>
-              <p>
-                No. In test mode (<code>UPSTREAM_MOCK=1</code>, on by default) generations return sample results, so you can try
-                sign-in, checkout and generation without any model key. Add an API key when you want real image and
-                video models.
-              </p>
+            <details class="faq-item">
+              <summary><span class="faq-q">Do I need a model API key to try it?<i class="ico ico-caret-down" aria-hidden="true"></i></span></summary>
+              <div class="faq-a">
+                <span class="faq-avatar" aria-hidden="true">s</span>
+                <div class="faq-bubble">
+                  <p>No. In test mode (<code>UPSTREAM_MOCK=1</code>, on by default) generations return sample results, so you can try sign-in, checkout and generation without any model key. Add an API key when you want real image and video models.</p>
+                </div>
+              </div>
             </details>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="wrap">
-        <div class="cols">
-          <div>
-            <!-- biome-ignore lint/a11y/useAnchorContent: aria-label names the link; the wordmark is drawn in CSS -->
-            <a class="brand" href="/" aria-label="shipwords"><span class="wordmark"></span></a>
-            <p class="blurb">Ship a money-making AI site for every new keyword. Open source, built on Cloudflare.</p>
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="/wordmark-text.svg" alt="shipwords" width="105" height="22" />
+            <p class="footer-blurb">Ship a money-making AI site for every new keyword. Open source, built on Cloudflare.</p>
           </div>
-          <div>
+          <div class="footer-col">
             <h3>Project</h3>
             <ul>
               <li><a href="https://github.com/shipwords-dev/shipwords">GitHub</a></li>
@@ -324,7 +702,7 @@
               <li><a href="#inside">What's inside</a></li>
             </ul>
           </div>
-          <div>
+          <div class="footer-col">
             <h3>Examples</h3>
             <ul>
               <li><a href="https://tinydeskai.io/?utm_source=shipwords&amp;utm_medium=www">Live site</a></li>
@@ -332,7 +710,7 @@
               <li><a href="https://yir.ai/?utm_source=shipwords&amp;utm_medium=www">Yir</a></li>
             </ul>
           </div>
-          <div>
+          <div class="footer-col">
             <h3>Support</h3>
             <ul>
               <li><a href="https://github.com/shipwords-dev/shipwords/issues">Issues</a></li>
@@ -341,13 +719,14 @@
             </ul>
           </div>
         </div>
-        <div class="legal">
+        <img class="footer-word" src="/wordmark-text.svg" alt="" aria-hidden="true" width="1200" height="251" loading="lazy" />
+        <div class="footer-legal">
           <span>shipwords · MIT licensed · Built on Cloudflare</span>
           <a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a>
         </div>
       </div>
     </footer>
 
-    <script src="/site.js" defer></script>
+    <script src="/home.js" defer></script>
   </body>
 </html>

@@ -1,11 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  // shipwords.dev: static pages from Workers static assets; the Worker only proxies /stats/* to Rybbit.
+  // shipwords.yololab.cc: static pages from Workers static assets; the Worker only proxies /stats/* to Rybbit.
   // Secret: RYBBIT_UPSTREAM (wrangler secret put RYBBIT_UPSTREAM).
   "name": "shipwords-www",
   "main": "src/worker.ts",
   "compatibility_date": "2026-10-01",
-  "routes": [{ "pattern": "shipwords.dev", "custom_domain": true }],
+  "routes": [{ "pattern": "shipwords.yololab.cc", "custom_domain": true }],
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
