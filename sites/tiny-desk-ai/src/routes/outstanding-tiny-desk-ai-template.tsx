@@ -24,25 +24,25 @@ const shots = (): { time: string; name: string; seats: string; clip?: string }[]
     time: '0:01–0:07',
     name: m.guides_template_shot_band(),
     seats: m.guides_template_seats_band(),
-    clip: 'shot-band',
+    clip: 'sample-dogs',
   },
   {
     time: '0:07–0:13',
     name: m.guides_template_shot_lead(),
     seats: m.guides_template_seats_lead(),
-    clip: 'shot-lead',
+    clip: 'sample-dogs',
   },
   {
     time: '0:13–0:16',
     name: m.guides_template_shot_sax(),
     seats: m.guides_template_seats_sax(),
-    clip: 'shot-sax',
+    clip: 'sample-dogs',
   },
   {
     time: '0:16–0:19',
     name: m.guides_template_shot_band2(),
     seats: m.guides_template_seats_band(),
-    clip: 'shot-band2',
+    clip: 'sample-dogs',
   },
 ];
 

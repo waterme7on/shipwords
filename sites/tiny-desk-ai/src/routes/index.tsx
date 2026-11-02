@@ -17,10 +17,10 @@ const BAND_PRICE = formatPrice(site.products[0]);
 
 // Samples are the hero dog version (sample-dogs) cut into 4 segments at the original cut points, in public/media; the template page uses the original shot-*.mp4 cut the same way.
 const SHOTS = [
-  { time: '0:00', name: m.home_shot_band, who: m.home_shot_band_who, clip: 'shot-band-dogs' },
-  { time: '0:05', name: m.home_shot_lead, who: m.home_shot_lead_who, clip: 'shot-lead-dogs' },
-  { time: '0:12', name: m.home_shot_sax, who: m.home_shot_sax_who, clip: 'shot-sax-dogs' },
-  { time: '0:15', name: m.home_shot_band2, who: m.home_shot_band_who, clip: 'shot-band2-dogs' },
+  { time: '0:00', name: m.home_shot_band, who: m.home_shot_band_who, clip: 'sample-dogs' },
+  { time: '0:05', name: m.home_shot_lead, who: m.home_shot_lead_who, clip: 'sample-dogs' },
+  { time: '0:12', name: m.home_shot_sax, who: m.home_shot_sax_who, clip: 'sample-dogs' },
+  { time: '0:15', name: m.home_shot_band2, who: m.home_shot_band_who, clip: 'sample-dogs' },
 ];
 
 // Viral wall below the hero: the first two are viral TikToks trimmed at the end of the performance (tutorial ad removed), labeled as trend references, not our usage;
@@ -30,21 +30,21 @@ const VIRAL = [
     tag: m.home_viral_warriors_tag,
     label: m.home_viral_warriors_label,
     hook: m.home_viral_warriors_hook,
-    clip: 'viral-warriors',
+    clip: 'sample-dogs',
     note: m.home_viral_note_tiktok,
   },
   {
     tag: m.home_viral_nfl_tag,
     label: m.home_viral_nfl_label,
     hook: m.home_viral_nfl_hook,
-    clip: 'viral-nfl',
+    clip: 'sample-dogs',
     note: m.home_viral_note_tiktok,
   },
   {
     tag: m.home_viral_new_lead_tag,
     label: m.home_viral_new_lead_label,
     hook: m.home_viral_new_lead_hook,
-    clip: 'sample-new-lead',
+    clip: 'sample-dogs',
     note: m.home_viral_note_ours,
   },
 ];
@@ -119,9 +119,9 @@ export const Route = createFileRoute('/')({
           '@type': 'VideoObject',
           name: m.home_viral_new_lead_label(),
           description: `${m.home_viral_new_lead_hook()} ${m.home_viral_note_ours()}.`,
-          thumbnailUrl: `${site.url}/media/sample-new-lead.jpg`,
-          contentUrl: `${site.url}/media/sample-new-lead.mp4`,
-          // When the first production deploy with the sample-new-lead media finished.
+          thumbnailUrl: `${site.url}/media/sample-dogs.jpg`,
+          contentUrl: `${site.url}/media/sample-dogs.mp4`,
+          // When the production sample media was generated.
           uploadDate: '2026-10-27T15:02:46Z',
           duration: 'PT18S',
         },
@@ -218,7 +218,7 @@ const HERO_CLIPS = {
     note: m.home_dogs_band_note,
   },
   viral: {
-    clip: 'viral-coaches',
+    clip: 'sample-dogs',
     tab: m.home_hero_tab_viral,
     tag: m.home_viral_coaches_tag,
     label: m.home_viral_coaches_label,
@@ -226,7 +226,7 @@ const HERO_CLIPS = {
     note: m.home_viral_coaches_note,
   },
   ours: {
-    clip: 'sample-full-band',
+    clip: 'sample-dogs',
     tab: m.home_hero_tab_ours,
     tag: m.home_ours_band_tag,
     label: m.home_ours_band_label,
