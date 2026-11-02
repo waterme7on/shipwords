@@ -19,6 +19,10 @@ const SKIP = [
   /migrations\/meta\//,
 ];
 const PLACEHOLDER_HOST = /(^|\.)(example\.(com|org|net)|test|invalid|localhost|users\.noreply\.github\.com)$/;
+// Public by design: this fork's site sender/support addresses and the D1 database id that
+// Cloudflare Builds reads from wrangler.jsonc. The database still needs the account token.
+const PUBLIC_EMAIL_DOMAINS = new Set(['yololab.cc']);
+const PUBLIC_UUIDS = new Set(['6d25576c-d27a-4a89-8e4f-490568361c0b']);
 
 /** Each rule: a global pattern and an optional ok(match, relPath) that accepts known-public matches. */
 const RULES = [
@@ -26,7 +30,8 @@ const RULES = [
   {
     name: 'email address',
     pattern: /\b[\w.+-]+@([\w-]+(?:\.[\w-]+)*\.[a-z]{2,})\b/gi,
-    ok: (m) => PLACEHOLDER_HOST.test(m[1].toLowerCase()),
+    ok: (m) =>
+      PLACEHOLDER_HOST.test(m[1].toLowerCase()) || PUBLIC_EMAIL_DOMAINS.has(m[1].toLowerCase()),
   },
   {
     name: 'GA4 measurement ID',
@@ -37,7 +42,7 @@ const RULES = [
   {
     name: 'UUID (D1 database, account or deployment ID)',
     pattern: /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/g,
-    ok: (m) => m[0].startsWith('00000000-'),
+    ok: (m) => m[0].startsWith('00000000-') || PUBLIC_UUIDS.has(m[0]),
   },
   { name: 'live payment key', pattern: /\b(?:sk|rk|pk)_live_[A-Za-z0-9]+|\bwhsec_[A-Za-z0-9]{20,}/g },
   { name: '32-hex ID (Cloudflare account or verification token)', pattern: /\b[0-9a-f]{32}\b/g },
