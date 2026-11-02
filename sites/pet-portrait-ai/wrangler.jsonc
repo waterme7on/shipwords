@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pet-portrait-ai",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "upload_source_maps": true,
+  "routes": [{ "pattern": "pet.shipwords.yololab.cc", "custom_domain": true }],
+  // Demo build: mock upstream, payments disabled until a Stripe test key is added.
+  "vars": {
+    "EMAIL_FROM": "noreply@yololab.cc",
+    "APP_URL": "https://pet.shipwords.yololab.cc",
+    "UPSTREAM_MOCK": "1",
+    "RYBBIT_UPSTREAM": ""
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pet-portrait-ai",
+      "database_id": "062dfb03-9d28-479a-84c0-396efae6184f",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "OUTPUTS", "bucket_name": "pet-portrait-ai-outputs" }],
+  "send_email": [{ "name": "EMAIL" }],
+  "workflows": [
+    {
+      "name": "pet-portrait-ai-generation",
+      "binding": "GENERATION_WORKFLOW",
+      "class_name": "GenerationWorkflow"
+    }
+  ]
+}

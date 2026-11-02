@@ -22,7 +22,12 @@ const PLACEHOLDER_HOST = /(^|\.)(example\.(com|org|net)|test|invalid|localhost|u
 // Public by design: this fork's site sender/support addresses and the D1 database id that
 // Cloudflare Builds reads from wrangler.jsonc. The database still needs the account token.
 const PUBLIC_EMAIL_DOMAINS = new Set(['yololab.cc']);
-const PUBLIC_UUIDS = new Set(['6d25576c-d27a-4a89-8e4f-490568361c0b']);
+const PUBLIC_UUIDS = new Set([
+  '6d25576c-d27a-4a89-8e4f-490568361c0b',
+  '062dfb03-9d28-479a-84c0-396efae6184f',
+  '02816398-0090-4d44-adc7-cb98953bedc8',
+  '8d82a0f3-bc9d-4782-ab49-36ac34d6d59b',
+]);
 
 /** Each rule: a global pattern and an optional ok(match, relPath) that accepts known-public matches. */
 const RULES = [
@@ -30,8 +35,7 @@ const RULES = [
   {
     name: 'email address',
     pattern: /\b[\w.+-]+@([\w-]+(?:\.[\w-]+)*\.[a-z]{2,})\b/gi,
-    ok: (m) =>
-      PLACEHOLDER_HOST.test(m[1].toLowerCase()) || PUBLIC_EMAIL_DOMAINS.has(m[1].toLowerCase()),
+    ok: (m) => PLACEHOLDER_HOST.test(m[1].toLowerCase()) || PUBLIC_EMAIL_DOMAINS.has(m[1].toLowerCase()),
   },
   {
     name: 'GA4 measurement ID',
