@@ -5,7 +5,7 @@ import { m } from '~/paraglide/messages.js';
 // and remove every TODO (check-site blocks on them). The policy date is common_legal_policy_date in messages/common.
 
 /** Support email, forwarded to your inbox by Cloudflare Email Routing. new-site sets the domain; check-site rejects example.com. */
-export const SUPPORT_EMAIL = 'support@ghibli.shipwords.yololab.cc';
+export const SUPPORT_EMAIL = 'support@yololab.cc';
 
 export function LegalPage({ title, intro, children }: { title: string; intro: string; children: ReactNode }) {
   return (
