@@ -1,14 +1,14 @@
-# shipwords.dev
+# shipwords landing
 
-The project's one-page website: what shipwords is, a quick start, the Tiny Desk AI example (tinydeskai.io and its source). Static pages in `public/`, served by Workers static assets; a small Worker (`src/worker.ts`) only proxies `/stats/*` to Rybbit. No site logic, and no secrets in the repo.
+The one-page website for this shipwords fork, deployed at `shipwords.yololab.cc`. It explains the fleet model, previews a keyword site, and links to the Tiny Desk AI example. Static pages live in `public/` and ship as Workers static assets; the small Worker in `src/worker.ts` only proxies `/stats/*`.
 
-Two languages: English at `/` (`public/index.html`) and Chinese at `/zh/` (`public/zh/index.html`). Both share `site.css` and `site.js`; keep the two pages in sync and their hreflang links pointing at each other.
+Two languages: English at `/` (`public/index.html`) and Chinese at `/zh/` (`public/zh/index.html`). Both share `home.css` and `home.js`; keep the two pages in sync and their hreflang links pointing at each other.
 
 ```bash
-pnpm --filter @shipwords/www dev      # http://localhost:6190
-pnpm --filter @shipwords/www run deploy   # production, needs confirmation
+pnpm --filter @shipwords/www dev           # local preview
+pnpm --filter @shipwords/www run deploy    # manual deploy, only when CI is unavailable
 ```
 
-Every outbound link carries `utm_source=shipwords` so Yir and tinydeskai.io can attribute traffic.
+Pushes to `main` deploy through Cloudflare Workers Builds. The build installs the pnpm workspace at the repo root, runs `check:public`, then deploys this Worker.
 
-Analytics: `public/analytics.js` loads GA4 and Rybbit on the production host only. Rybbit goes through `/stats/*`, the only path the Worker (`src/worker.ts`) handles; it proxies to the `RYBBIT_UPSTREAM` secret. Search Console and Bing Webmaster Tools are verified by DNS records on the shipwords.dev zone.
+Analytics stays off on this copy. `public/analytics.js` is host-gated to the upstream `shipwords.dev` deployment, and the privacy pages state that this copy collects nothing.
