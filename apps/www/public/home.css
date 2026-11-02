@@ -1174,6 +1174,10 @@ code {
   gap: 10px;
   min-width: 0;
 }
+a.fleet-site:hover b {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 .fleet-mark {
   display: grid;
@@ -1193,8 +1197,7 @@ code {
   font-size: 13.5px;
   font-weight: 600;
   text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  white-space: nowrap;}
 
 .fleet-site span {
   display: block;

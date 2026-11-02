@@ -63,7 +63,7 @@
       key: 'tiny',
       kw: 'tiny desk ai',
       name: 'Tiny Desk AI',
-      domain: 'tinydeskai.io',
+      domain: 'app.shipwords.yololab.cc',
       theme: 'ember',
       image: '/img/result/tiny-desk-ai.webp',
       credits: 120,

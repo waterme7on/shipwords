@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ghibli-photo",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "upload_source_maps": true,
+  "routes": [{ "pattern": "ghibli.shipwords.yololab.cc", "custom_domain": true }],
+  // Demo build: mock upstream, payments disabled until a Stripe test key is added.
+  "vars": {
+    "EMAIL_FROM": "noreply@yololab.cc",
+    "APP_URL": "https://ghibli.shipwords.yololab.cc",
+    "UPSTREAM_MOCK": "1",
+    "RYBBIT_UPSTREAM": ""
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ghibli-photo",
+      "database_id": "02816398-0090-4d44-adc7-cb98953bedc8",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "OUTPUTS", "bucket_name": "ghibli-photo-outputs" }],
+  "send_email": [{ "name": "EMAIL" }],
+  "workflows": [
+    {
+      "name": "ghibli-photo-generation",
+      "binding": "GENERATION_WORKFLOW",
+      "class_name": "GenerationWorkflow"
+    }
+  ]
+}

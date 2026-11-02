@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ai-baby",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "upload_source_maps": true,
+  "routes": [{ "pattern": "baby.shipwords.yololab.cc", "custom_domain": true }],
+  // Demo build: mock upstream, payments disabled until a Stripe test key is added.
+  "vars": {
+    "EMAIL_FROM": "noreply@yololab.cc",
+    "APP_URL": "https://baby.shipwords.yololab.cc",
+    "UPSTREAM_MOCK": "1",
+    "RYBBIT_UPSTREAM": ""
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ai-baby",
+      "database_id": "8d82a0f3-bc9d-4782-ab49-36ac34d6d59b",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "OUTPUTS", "bucket_name": "ai-baby-outputs" }],
+  "send_email": [{ "name": "EMAIL" }],
+  "workflows": [
+    {
+      "name": "ai-baby-generation",
+      "binding": "GENERATION_WORKFLOW",
+      "class_name": "GenerationWorkflow"
+    }
+  ]
+}
