@@ -102,6 +102,7 @@ a {
 
 p {
   transition: none;
+  text-wrap: pretty;
 }
 
 h1,
@@ -1117,7 +1118,7 @@ code {
 }
 
 .section-lede {
-  max-width: 66ch;
+  max-width: 58ch;
   margin: 16px 0 0;
   color: var(--ink-2);
   font-size: clamp(15.5px, 1.4vw, 17px);
@@ -2457,7 +2458,7 @@ html:not(.js) .demo-ink {
 }
 
 .faq-bubble {
-  max-width: min(86%, 600px);
+  max-width: min(86%, 500px);
   padding: 11px 14px;
   border: 1px solid var(--line);
   border-radius: 4px 14px 14px 14px;
